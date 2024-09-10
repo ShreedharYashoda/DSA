@@ -4,53 +4,37 @@ import java.util.HashSet;
 public class FindAndRemoveLoop {
 
 	public ListNode findAndRemoveLoopUsingExtraSpace(ListNode head) {
+		// Create a HashSet to store visited nodes
 		Set<ListNode> seen = new HashSet<>();
+
+		// Initialize pointers for the current node and the previous node
 		ListNode cur = head, prev = null;
 
+		// Traverse the linked list
 		while (cur != null) {
+			// If the current node has not been seen before
 			if (!seen.contains(cur)) {
+				// Add the current node to the HashSet
 				seen.add(cur);
+				// Move the previous pointer to the current node
 				prev = cur;
+				// Move to the next node
 				cur = cur.next;
 			} else {
+				// If the current node has been seen before, it means there's a loop
+				// Break the loop by setting the previous node's next pointer to null
 				prev.next = null;
+				// Return the head of the modified list
 				return head;
 			}
 		}
 
+		// If no loop was found, return the head of the list
 		return head;
 	}
 
-	public ListNode findAndRemoveLoopUsingFloydCycleDetection(ListNode head) {
-		
-		ListNode slow = head, fast = head;
 
-		while(fast != null) {
-			slow = slow.next;
-			fast = fast.next.next;
-
-			if(fast == null) {
-				return head;
-			}
-
-			if(slow == fast) {
-				slow = head;
-				break;
-			}
-		}
-
-		ListNode prev = null;
-		
-		while(slow != fast) {
-			slow = slow.next;
-			prev = fast;
-			fast = fast.next;
-		}
-
-		prev.next = null;
-
-		return head;
-	}
+	
 
 	public static void main(String[] args) {
 

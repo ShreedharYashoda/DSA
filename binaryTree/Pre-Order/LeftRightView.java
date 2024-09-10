@@ -11,10 +11,10 @@ class LeftRightView {
 		root.right.left = new Node(7);
 		root.right.left.right = new Node(8);
 		/*
-		             1
+		             		   1
 							2     3
-					  4   6  7  5
-						 9      8
+					  	  4   6  7  5
+						   9      8
 		*/
 
 		List<Integer> res = new ArrayList<>();
@@ -30,13 +30,13 @@ class LeftRightView {
 
   }
 
-	static class View{
+	static class View {
 		int maxLevel = 0;
 
 		public void leftView(Node root, int level, List<Integer> res){
 			if(root == null) return;
 
-			if(maxLevel < level){
+			if(maxLevel < level) {
 				res.add(root.data);
 				maxLevel = level;
 			}

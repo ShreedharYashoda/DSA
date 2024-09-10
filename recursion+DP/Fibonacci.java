@@ -23,12 +23,11 @@ class Fibonacci {
     return memo_util(n, memo);
   }
 
-  public static int memo_util(int n, Map<Integer, Integer> memo){
+  public static int memo_util(int n, Map<Integer, Integer> memo) {
     if(memo.containsKey(n)) return memo.get(n);
 
     memo.put(n, memo_util(n-1, memo)+memo_util(n-2, memo));
     return memo.get(n);
-
   }
 
   // O(n) O(n)

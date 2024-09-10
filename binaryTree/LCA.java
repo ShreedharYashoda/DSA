@@ -1,7 +1,7 @@
 //Leetcode 236
 class LCA {
 
-	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 			if(root == null) return null;
 
 			if(root.val == p.val || root.val == q.val) return root;
@@ -22,7 +22,7 @@ class LCA {
     }
 
 
-  public static void main(String[] args) {
+public static void main(String[] args) {
 		TreeNode root = new TreeNode(1);
 		root.left = new TreeNode(2);
 		root.right = new TreeNode(3);
@@ -33,7 +33,7 @@ class LCA {
 		root.right.left = new TreeNode(7);
 		root.right.left.right = new TreeNode(8);
 		/*
-		             1
+		             			1
 							2     3
 					  4   6  7  5
 						  9     8
